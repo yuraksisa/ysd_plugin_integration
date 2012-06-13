@@ -10,6 +10,7 @@ Plugins::SinatraAppPlugin.register :integration do
    version=     '0.1'
    sinatra_extension Sinatra::Integration
    sinatra_extension Sinatra::YSD::ExternalServiceAccountManagement
+   sinatra_extension Sinatra::YSD::ExternalServiceAccountManagementRESTApi
    hooker            Huasi::IntegrationExtension
   
 end
