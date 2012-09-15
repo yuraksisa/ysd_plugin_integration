@@ -7,9 +7,12 @@ Gem::Specification.new do |s|
   s.files   = Dir['lib/**/*.rb','views/**/*.erb','i18n/**/*.yml','static/**/*.*'] 
   s.description = "Integration integration"
   s.summary = "Integration integration"
+
+  s.add_runtime_dependency "json"  
   
-  s.add_runtime_dependency "ysd_core_plugins"
-  s.add_runtime_dependency "ysd_md_integration"
-  s.add_runtime_dependency "ysd_mw_integration"
+  s.add_runtime_dependency "ysd_plugin_site"              # Site
+  s.add_runtime_dependency "ysd_plugin_entitymanagement"  # Framework  
+  s.add_runtime_dependency "ysd_core_plugins"             # Plugins
+  s.add_runtime_dependency "ysd_md_integration"           # Integration model
   
 end

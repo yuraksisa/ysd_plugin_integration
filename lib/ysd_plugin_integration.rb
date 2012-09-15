@@ -1,3 +1,5 @@
-require 'ysd_plugin_integration_middleware'
+require 'sinatra/ysd_sinatra_integration'
+require 'sinatra/ysd_sinatra_external_service_account_management'
+require 'sinatra/ysd_sinatra_external_service_account_management_rest_api'
 require 'ysd_plugin_integration_extension'
 require 'ysd_plugin_integration_init'
