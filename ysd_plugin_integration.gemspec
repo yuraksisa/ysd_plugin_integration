@@ -10,9 +10,8 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "json"  
   
-  s.add_runtime_dependency "ysd_plugin_site"              # Site
-  s.add_runtime_dependency "ysd_plugin_entitymanagement"  # Framework  
-  s.add_runtime_dependency "ysd_core_plugins"             # Plugins
-  s.add_runtime_dependency "ysd_md_integration"           # Integration model
+  s.add_runtime_dependency "ysd_plugin_cms"              # Site
+  s.add_runtime_dependency "ysd_core_plugins"            # Plugins
+  s.add_runtime_dependency "ysd_md_integration"          # Integration model
   
 end
