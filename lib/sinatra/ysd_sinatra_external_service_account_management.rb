@@ -8,7 +8,7 @@ module Sinatra
         # External service accounts management page
         #
         app.get "/external-service-account-management" do
-          load_page 'external_service_account_management'.to_sym
+          load_page :external_service_account_management
         end
         
       end

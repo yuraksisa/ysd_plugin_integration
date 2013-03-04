@@ -23,7 +23,7 @@ module Huasi
                      :options => {:title => app.t.integration_admin_menu.external_service_account_management,
                                   :link_route => "/external-service-account-management",
                                   :description => 'It defines the accounts to integrate external services as twitter, facebook and picasa',
-                                  :module => 'configuration',
+                                  :module => :integration,
                                   :weight => 9}}]
        
    
