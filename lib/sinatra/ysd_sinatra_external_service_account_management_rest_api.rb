@@ -13,7 +13,7 @@ module Sinatra
         #
         # Retrive all external service accounts (GET)
         #
-        app.get "/external-service-accounts" do
+        app.get "/api/external-service-accounts" do
           
           data=ExternalIntegration::ExternalServiceAccount.all
   
@@ -24,7 +24,7 @@ module Sinatra
         #
         # Retrieve external service accounts (POST)
         #
-        ["/external-service-accounts","/external-service-accounts/page/:page"].each do |path|
+        ["/api/external-service-accounts","/api/external-service-accounts/page/:page"].each do |path|
           app.post path do
           
             data=ExternalIntegration::ExternalServiceAccount.all
@@ -45,7 +45,7 @@ module Sinatra
         #
         # Create a new external service accounts
         #
-        app.post "/external-service-account" do
+        app.post "/api/external-service-account" do
           
           request.body.rewind
           account_request = JSON.parse(URI.unescape(request.body.read))
@@ -61,7 +61,7 @@ module Sinatra
         #
         # Updates a external service account
         #
-        app.put "/external-service-account" do
+        app.put "/api/external-service-account" do
         
           request.body.rewind
           account_request = JSON.parse(URI.unescape(request.body.read))
@@ -80,7 +80,7 @@ module Sinatra
         #
         # Deletes a external service account
         #
-        app.delete "/external-service-account" do
+        app.delete "/api/external-service-account" do
         
         end
       

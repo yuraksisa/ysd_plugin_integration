@@ -21,7 +21,7 @@ module Huasi
        
       menu_items = [{:path => '/configuration/accounts',
                      :options => {:title => app.t.integration_admin_menu.external_service_account_management,
-                                  :link_route => "/external-service-account-management",
+                                  :link_route => "/admin/external-service-accounts",
                                   :description => 'It defines the accounts to integrate external services as twitter, facebook and picasa',
                                   :module => :integration,
                                   :weight => 9}}]
@@ -38,8 +38,8 @@ module Huasi
     #
     def routes(context={})
     
-      routes = [{:path => '/external-service-account-management',
-                 :regular_expression => /^\/external-service-account-management/,
+      routes = [{:path => '/admin/external-service-accounts',
+                 :regular_expression => /^\/admin\/external-service-accounts/,
                  :title => 'External Service Accounts',
                  :description => 'It defines the accounts to integrate external services as twitter, facebook and picasa',
                  :fit => 1,
