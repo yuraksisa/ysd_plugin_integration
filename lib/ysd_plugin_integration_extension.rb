@@ -26,7 +26,7 @@ module Huasi
                                   :module => :integration,
                                   :weight => 9}}]
        
-   
+
     end
   
     # ========= Routes ===================
@@ -39,8 +39,9 @@ module Huasi
     def routes(context={})
     
       routes = [{:path => '/admin/external-service-accounts',
+                 :parent_path => '/admin/site/configuration',
                  :regular_expression => /^\/admin\/external-service-accounts/,
-                 :title => 'External Service Accounts',
+                 :title => 'Cuentas servicios externos',
                  :description => 'It defines the accounts to integrate external services as twitter, facebook and picasa',
                  :fit => 1,
                  :module => :integration}]
