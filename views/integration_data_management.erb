@@ -1,0 +1,119 @@
+<%= include('entity-management') %>
+
+<!-- Renders the element description -->
+
+<script type="text/tmpl" id="elements_title">
+  <h2 class="entity-title"><%=t.integration_data.title%></h2>
+</script>
+
+<script type="text/tmpl" id="elements_description">
+    <%= t.integration_data.description %>
+</script>
+
+<!-- Renders the elements container -->
+<script type="text/tmpl" id="elements_container_template">
+
+  <table id="elements_table" class="table">
+     <thead class="table-header">
+       <tr>
+         <th class="table-header-title" scope="col" style="width:15%"><%= t.integration_data.table.date %></th>
+         <th class="table-header-title" scope="col" style="width:15%"><%= t.integration_data.table.source_system %></th>
+         <th class="table-header-title" scope="col" style="width:15%"><%= t.integration_data.table.source_entity %></th>
+         <th class="table-header-title" scope="col" style="width:15%"><%= t.integration_data.table.source_id %></th>
+         <th class="table-header-title" scope="col" style="width:15%"><%= t.integration_data.table.destination_system %></th>
+         <th class="table-header-title" scope="col" style="width:15%"><%= t.integration_data.table.destination_entity %></th>
+         <th class="table-header-title" scope="col" style="width:15%"><%= t.integration_data.table.destination_id %></th>
+         <th class="table-header-title" scope="col" style="width:10%"></th>
+       </tr>
+     </thead>
+     <tbody id="elements_tbody" class="table-tbody">             
+     </tbody>
+  </table>
+
+</script>
+
+<!-- Renders one element in the elements list view -->
+        
+<script type="text/tmpl" id="elements_list_template">
+
+    <tr class="table-row" rel="<%%= index %>" id="element_row_<%%=index%>">
+      <td class="table-cell element-navigation-detail" rel="<%%= index %>"><%%= entity.creation_date.toString('yyyy-MM-dd HH:mm') %></td>
+      <td class="table-cell element-navigation-detail" rel="<%%= index %>"><%%= entity.source_system %></td>
+      <td class="table-cell element-navigation-detail" rel="<%%= index %>"><%%= entity.source_entity %></td>
+      <td class="table-cell element-navigation-detail" rel="<%%= index %>"><%%= entity.source_id %></td>
+      <td class="table-cell element-navigation-detail" rel="<%%= index %>"><%%= entity.destination_system %></td>
+      <td class="table-cell element-navigation-detail" rel="<%%= index %>"><%%= entity.destination_entity %></td>
+      <td class="table-cell element-navigation-detail" rel="<%%= index %>"><%%= entity.destination_id %></td>      
+      <td class="table-cell"></td>    
+    </tr>
+
+</script>
+
+<!-- Renders one element in the element view (full detailed) -->
+
+<script type="text/tmpl" id="element_template">
+
+
+</script>
+
+<!-- Renders the form to edit an element -->
+
+<script type="text/tmpl" id="element_template_form">
+              
+     <form name="element" id="integration_data_form">
+        
+        <div class="form-fields">
+        
+          <%% if (entity) { %>
+          <input type="hidden" id="id" name="id" value="<%%=entity.id%>"/>
+          <%% } %>
+
+          <div class="grid_6">
+            <div class="formrow">
+              <label for="name" class="fieldtitle"><%= t.integration_data.form.source_system.label %> <span class="mandatoryfield">*</span></label>
+              <input type="text" maxlength="80" id="source_system" name="source_system" class="fieldcontrol" <%% if (entity) { %> value="<%%= entity.source_system %>" <%% } %> />
+            </div>
+            <div class="formrow">
+              <label for="name" class="fieldtitle"><%= t.integration_data.form.source_entity.label %> <span class="mandatoryfield">*</span></label>
+              <input type="text" maxlength="80" id="source_entity" name="source_entity" class="fieldcontrol" <%% if (entity) { %> value="<%%= entity.source_entity %>" <%% } %> />
+            </div>
+            <div class="formrow">
+              <label for="name" class="fieldtitle"><%= t.integration_data.form.source_id.label %> <span class="mandatoryfield">*</span></label>
+              <input type="text" maxlength="80" id="source_id" name="source_id" class="fieldcontrol" <%% if (entity) { %> value="<%%= entity.source_id %>" <%% } %> />
+            </div>                        
+          </div>
+
+          <div class="grid_6">
+            <div class="left-margin">
+              <div class="formrow">
+                <label for="name" class="fieldtitle"><%= t.integration_data.form.destination_system.label %> <span class="mandatoryfield">*</span></label>
+                <input type="text" maxlength="80" id="destination_system" name="destination_system" class="fieldcontrol" <%% if (entity) { %> value="<%%= entity.destination_system %>" <%% } %> />
+              </div>
+              <div class="formrow">
+                <label for="name" class="fieldtitle"><%= t.integration_data.form.destination_entity.label %> <span class="mandatoryfield">*</span></label>
+                <input type="text" maxlength="80" id="destination_entity" name="destination_entity" class="fieldcontrol" <%% if (entity) { %> value="<%%= entity.destination_entity %>" <%% } %> />
+              </div>
+              <div class="formrow">
+                <label for="name" class="fieldtitle"><%= t.integration_data.form.destination_id.label %> <span class="mandatoryfield">*</span></label>
+                <input type="text" maxlength="80" id="destination_id" name="destination_id" class="fieldcontrol" <%% if (entity) { %> value="<%%= entity.destination_id %>" <%% } %> />
+              </div>   
+            </div>                     
+          </div>
+
+        </div>
+        
+        <div class="bottom-navigation-bar navigation-bar">
+             <div class="navigation-bar-crud-buttons">
+                <%% if (entity) { %>
+                  <input type="submit" class="update-entity-button action-button entity-management-button" value="<%=t.entitymanagement.update%>"/>
+                <%% } 
+                   else { %>
+                  <input type="submit" class="create-entity-button action-button entity-management-button" value="<%=t.entitymanagement.create%>"/>
+                <%% } %>
+             </div>
+        </div>
+     
+     </form>
+     
+
+</script>

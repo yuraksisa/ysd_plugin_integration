@@ -11,6 +11,10 @@ Plugins::SinatraAppPlugin.register :integration do
    sinatra_extension Sinatra::YSD::Integration
    sinatra_extension Sinatra::YSD::ExternalServiceAccountManagement
    sinatra_extension Sinatra::YSD::ExternalServiceAccountManagementRESTApi
+   sinatra_extension Sinatra::YitoExtension::IntegrationDataManagement
+   sinatra_extension Sinatra::YitoExtension::IntegrationDataManagementRESTApi
+   sinatra_extension Sinatra::YitoExtension::IntegrationErrorsManagement
+   sinatra_extension Sinatra::YitoExtension::IntegrationErrorsManagementRESTApi         
    hooker            Huasi::IntegrationExtension
   
 end

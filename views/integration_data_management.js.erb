@@ -1,0 +1,102 @@
+ require(['jquery', 'YSDEntityManagement','jquery.validate','json2','datejs'],
+         function($, EntityManagement) {
+
+ 
+  function IntegrationDataHook() {
+ 	   
+    this.entityKey = function(entity) {
+      return entity.id;
+    }
+
+    this.onEdit = function(entity) {
+      $('#source_system').focus();  	
+      this.configForm(entity);
+    };
+  
+    this.onNew = function() {
+  	  $('#source_system').focus();
+  	  this.configForm(null);
+    }
+    
+    this.onRenderEntities = function(entities) {
+      $('.elements-search').show();	
+    }
+ 
+    this.configForm = function(entity) {
+             
+      this.configValidation();
+    	
+    }
+    
+    this.configValidation = function() {
+           	 
+       	 $('#integration_data_form').validate({
+       	  	
+            submitHandler: function(form) 
+            {
+               return false;
+            },
+                 	        	   
+       	    rules : { // rules
+       	       'source_system': {
+       	         required: true	
+       	       },
+               'source_entity' : {
+                 required: true
+               },
+               'source_id': {
+                 required: true
+               },
+               'destination_system': {
+                 required: true 
+               },
+               'destination_entity' : {
+                 required: true
+               },
+               'destination_id': {
+                 required: true
+               },               
+       	    },
+       	    
+       	    messages : { // messages
+       	       'source_system': {
+       	       	 required : '<%=t.integration_data_management.form.source_system.required%>'
+       	       },
+               'source_entity': {
+                 required: '<%=t.integration_data_management.form.source_entity.required%>'
+               },
+               'source_id': {
+                 required: '<%=t.integration_data_management.form.source_id.required%>'
+               },
+               'destination_system': {
+                 required : '<%=t.integration_data_management.form.destination_system.required%>'
+               },
+               'destination_entity': {
+                 required: '<%=t.integration_data_management.form.destination_entity.required%>'
+               },
+               'destination_id': {
+                 required: '<%=t.integration_data_management.form.destination_id.required%>'
+               },               
+       	    }
+       	    
+       	  }
+       	 );
+    	
+    	
+    }
+  	
+  };
+  
+  var urls = { 
+  	           query_url  : '/api/integration/data-q',
+    	         create_url : '/api/integration/data',
+  	           update_url : '/api/integration/data',
+  	           delete_url : '/api/integration/data',
+  	           get_url    : '/api/integration/data'
+  	         };
+  
+  var integrationDataHook = new IntegrationDataHook();
+  var integrationDataManagement = new EntityManagement(urls, 'integration-data', 
+      <%= integration_data_page_size %>, integrationDataHook, {prefix: '/admin/integration'});
+ 
+ });

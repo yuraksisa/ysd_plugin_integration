@@ -1,3 +1,57 @@
 integration_admin_menu:
   integration_menu: Integració
   external_service_account_management: Comptes serveis externs
+integration_data:
+  title: Integració de dades
+  description: Integració de dades
+  table:
+    date: Data
+    source_system: Sistema font
+    source_entity: Entitat font
+    source_id: Id entitat font
+    destination_system: Sistema destí
+    destination_entity: Entitat destí
+    destination_id: Id entitat destí
+  form:
+    source_system: 
+      label: Sistema origen
+      required: Sistema origen obligatori
+    source_entity: 
+      label: Entitat origen
+      required: Entitat origen obligatoria
+    source_id: 
+      label: Id entitat origen
+      required: Id entity origen obligatori
+    destination_system: 
+      label: Sistema destí
+      required: Sistema destí obligatori
+    destination_entity: 
+      label: Entitat destí
+      required: Entitat destí obligatoria
+    destination_id: 
+      label: Id entitat destí  
+      required: Id entitat destí obligatoria
+integration_error:
+  title: Errores en la integración de datos
+  description: Errores en la integración de datos
+  table:
+    date: Fecha
+    source_system: Sistema origen
+    source_entity: Entidad origen
+    source_id: Id entidad origen
+    destination_system: Sistema destino
+    destination_entity: Entidad destino
+    message_error: Error
+  form:
+    source_system: 
+      label: Sistema origen
+    source_entity: 
+      label: Entidad origen
+    source_id: 
+      label: Id entidad origen
+    destination_system: 
+      label: Sistema destino
+    destination_entity: 
+      label: Entidad destino
+    message_error: 
+      label: Mensaje de error           

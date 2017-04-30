@@ -1,3 +1,57 @@
 integration_admin_menu:
   integration_menu: Integración
   external_service_account_management: Cuentas servicios externos
+integration_data:
+  title: Integración de datos
+  description: Integración de datos
+  table:
+    date: Fecha
+    source_system: Sistema origen
+    source_entity: Entidad origen
+    source_id: Id entidad origen
+    destination_system: Sistema destino
+    destination_entity: Entidad destino
+    destination_id: Id entidad destino
+  form:
+    source_system: 
+      label: Sistema origen
+      required: Sistema origen obligatorio
+    source_entity: 
+      label: Entidad origen
+      required: Entitat origen obligatoria
+    source_id: 
+      label: Id entidad origen
+      required: Id entity origen obligatorio
+    destination_system: 
+      label: Sistema destino
+      required: Sistema destino obligatorio
+    destination_entity: 
+      label: Entidad destino
+      required: Entidad destino obligatoria
+    destination_id: 
+      label: Id entidad destino  
+      required: Id entidad destino obligatoria 
+integration_error:
+  title: Errores en la integración de datos
+  description: Errores en la integración de datos
+  table:
+    date: Fecha
+    source_system: Sistema origen
+    source_entity: Entidad origen
+    source_id: Id entidad origen
+    destination_system: Sistema destino
+    destination_entity: Entidad destino
+    message_error: Error
+  form:
+    source_system: 
+      label: Sistema origen
+    source_entity: 
+      label: Entidad origen
+    source_id: 
+      label: Id entidad origen
+    destination_system: 
+      label: Sistema destino
+    destination_entity: 
+      label: Entidad destino
+    message_error: 
+      label: Mensaje de error     

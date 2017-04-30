@@ -1,0 +1,25 @@
+ require(['jquery', 'YSDEntityManagement','jquery.validate','json2', 'datejs'],
+         function($, EntityManagement) {
+
+ 
+  function IntegrationErrorHook() {
+ 	   
+    this.entityKey = function(entity) {
+      return entity.id;
+    }
+    
+    this.onRenderEntities = function(entities) {
+      $('.elements-search').show();	
+    }
+  	
+  };
+  
+  var urls = { 
+  	           query_url  : '/api/integration/errors'
+  	         };
+  
+  var integrationErrorHook = new IntegrationErrorHook();
+  var integrationErrorManagement = new EntityManagement(urls, 'integration-errors', 
+      <%= integration_error_page_size %>, integrationErrorHook, {prefix: '/admin/integration'});
+ 
+ });
