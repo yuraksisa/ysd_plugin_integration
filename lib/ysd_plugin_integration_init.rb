@@ -14,7 +14,8 @@ Plugins::SinatraAppPlugin.register :integration do
    sinatra_extension Sinatra::YitoExtension::IntegrationDataManagement
    sinatra_extension Sinatra::YitoExtension::IntegrationDataManagementRESTApi
    sinatra_extension Sinatra::YitoExtension::IntegrationErrorsManagement
-   sinatra_extension Sinatra::YitoExtension::IntegrationErrorsManagementRESTApi         
+   sinatra_extension Sinatra::YitoExtension::IntegrationErrorsManagementRESTApi
+   sinatra_extension Sinatra::YitoExtension::BackgroundExportFileManagement         
    hooker            Huasi::IntegrationExtension
   
 end

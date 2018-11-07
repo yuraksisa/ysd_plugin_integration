@@ -7,6 +7,25 @@ module Huasi
 
   class IntegrationExtension < Plugins::ViewListener
                 
+    # ========= Install ==================
+
+    # 
+    # Install the plugin
+    #
+    def install(context={})
+
+        SystemConfiguration::Variable.first_or_create({name: 'data.use_server_name_folder'},
+                                                      {value: 'false',
+                                                       description: 'Indica si usa server name como folder para almacenar los ficheros',
+                                                       module: :integration})
+
+        SystemConfiguration::Variable.first_or_create({name: 'data.folder_root'},
+                                                      {value: '',
+                                                       description: 'Indica el path donde se crea la estructura para almacenar los ficheros.',
+                                                       module: :integration})
+
+    end                                                       
+
     # ========= Menu =====================
     
     #
