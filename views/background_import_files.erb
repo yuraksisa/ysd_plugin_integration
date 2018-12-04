@@ -1,0 +1,60 @@
+<div class="top-navigation-bar">
+  <h2 class="entity-title">Resultados importación</h2>
+</div>
+
+<div class="admin_content_wrapper" style="background-color: #f5f5f5; margin: 0">
+  <br>
+  <%= partial :flash_messages_admin %>
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <div class="block block-content-full">
+        <div class="block-header bg-gray-lighter">
+          <h3 class="block-title">Ficheros importados</h3>
+        </div>
+        <div class="block-content block-content-narrow">
+          <% if @import_files.size == 0 %>
+          <p>No hay datos</p>
+          <% else %>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th></th>                
+              </tr>
+            </thead>
+            <tbody>
+              <% @import_files.each do |import_file| %>
+              <tr>
+                <td><%=import_file.created_at.strftime('%Y-%m-%d %H:%M:%S')%></td>
+                <td><%=import_file.name%></td>
+                <td>
+                   <% if import_file.status == :pending %>
+                     <span>En cola</span>
+                   <% elsif import_file.status == :in_progress %>
+                     <span>En progreso <%= import_file.number_of_records %> procesados</span>
+                   <% elsif import_file.status == :error %>
+                     <span>Error en la exportación</span>
+                   <% elsif import_file.status == :done %>
+                     <span>Finalizado <b><%= import_file.number_of_records || 0 %></b> procesados <b><%= import_file.number_of_imported_records || 0 %></b> importados <b><%= import_file.number_of_errors || 0 %></b> errores </span>
+                   <% end %>
+                </td>
+                <td>
+                   <% if import_file.status == :done or import_file.status == :error %>
+                     <form action="/admin/integration/import/<%=import_file.id%>" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" class="btn btn-sm btn-danger" value="Eliminar">
+                     </form> 
+                   <% end %>
+                </td>                   
+              </tr>
+              <% end %>
+            </tbody>        
+          </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

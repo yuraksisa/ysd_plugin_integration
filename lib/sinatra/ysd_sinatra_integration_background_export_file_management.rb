@@ -45,9 +45,9 @@ module Sinatra
 	          else
 	          	status 404
 	          end
-	      else
-	      	status 404
-	      end 	
+  	      else
+  	      	status 404
+  	      end 	
 
         end        
 
